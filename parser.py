@@ -29,7 +29,7 @@ def parse_schedule(file) -> pd.DataFrame:
 
     # Forward-fill vehicle number (only the first row of each truck group has it)
     data["vehicle_no"] = data["vehicle_no"].replace("", pd.NA)
-    data["vehicle_no"] = data["vehicle_no"].fillna(method="ffill")
+    data["vehicle_no"] = data["vehicle_no"].ffill()
 
     # Classify outstation
     data["province"] = data["province"].astype(str).str.strip()
